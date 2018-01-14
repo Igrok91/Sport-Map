@@ -13,7 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.map.sport.sportmap.R;
-import com.map.sport.sportmap.view.controller.action.Action_Fragment;
+import com.map.sport.sportmap.view.controller.action.NewsFragment;
 import com.map.sport.sportmap.view.controller.create.CreateFragment;
 import com.map.sport.sportmap.view.controller.profile.ProfileFragment;
 import com.map.sport.sportmap.view.controller.search.SearchFragment;
@@ -21,7 +21,7 @@ import com.map.sport.sportmap.view.controller.subscribe.SubscribeFragment;
 
 import java.lang.reflect.Field;
 
-public class FirstActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,7 @@ public class FirstActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    loadFragment(Action_Fragment.newInstance("as", "asd"));
+                    loadFragment(NewsFragment.newInstance(1));
                     return true;
                 case R.id.navigation_search:
                     loadFragment(SearchFragment.newInstance("as", "asd"));

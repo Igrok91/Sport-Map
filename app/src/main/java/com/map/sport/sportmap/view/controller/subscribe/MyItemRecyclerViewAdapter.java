@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.map.sport.sportmap.R;
 import com.map.sport.sportmap.view.controller.subscribe.SubscribeFragment.OnListFragmentInteractionListener;
-import com.map.sport.sportmap.dummy.DummyContent.DummyItem;
+import com.map.sport.sportmap.view.controller.subscribe.dummy.SubsribeDummyContent.DummyItem;
 
 import java.util.List;
 

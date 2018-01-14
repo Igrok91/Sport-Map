@@ -3,11 +3,13 @@ package com.map.sport.sportmap.view.controller.search;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.map.sport.sportmap.R;
+import com.map.sport.sportmap.view.controller.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,6 +59,11 @@ public class SearchFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+        if (getActivity() != null) {
+            MainActivity mainActivity = (MainActivity)getActivity();
+            Toolbar toolbar = (Toolbar) mainActivity.findViewById(R.id.toolbar);
+            toolbar.setTitle(R.string.title_search);
         }
     }
 

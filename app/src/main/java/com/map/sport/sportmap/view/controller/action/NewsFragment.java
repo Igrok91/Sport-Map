@@ -1,4 +1,4 @@
-package com.map.sport.sportmap.view.controller.subscribe;
+package com.map.sport.sportmap.view.controller.action;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,13 +6,15 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.map.sport.sportmap.R;
-import com.map.sport.sportmap.view.controller.subscribe.dummy.SubsribeDummyContent;
-import com.map.sport.sportmap.view.controller.subscribe.dummy.SubsribeDummyContent.DummyItem;
+import com.map.sport.sportmap.view.controller.MainActivity;
+import com.map.sport.sportmap.view.controller.action.dummy.NewsDummyContent;
+import com.map.sport.sportmap.view.controller.action.dummy.NewsDummyContent.Event;
 
 /**
  * A fragment representing a list of Items.
@@ -20,7 +22,7 @@ import com.map.sport.sportmap.view.controller.subscribe.dummy.SubsribeDummyConte
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class SubscribeFragment extends Fragment {
+public class NewsFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -32,13 +34,13 @@ public class SubscribeFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public SubscribeFragment() {
+    public NewsFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static SubscribeFragment newInstance(int columnCount) {
-        SubscribeFragment fragment = new SubscribeFragment();
+    public static NewsFragment newInstance(int columnCount) {
+        NewsFragment fragment = new NewsFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -52,12 +54,19 @@ public class SubscribeFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+
+        if (getActivity() != null) {
+            MainActivity mainActivity = (MainActivity)getActivity();
+            Toolbar toolbar = (Toolbar) mainActivity.findViewById(R.id.toolbar);
+            toolbar.setTitle(R.string.title_home);
+        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_item_news_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -68,13 +77,15 @@ public class SubscribeFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(SubsribeDummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new NewsItemRecyclerViewAdapter(NewsDummyContent.ITEMS, mListener));
         }
         return view;
     }
 
 
-   /* @Override
+
+
+/*    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnListFragmentInteractionListener) {
@@ -103,6 +114,6 @@ public class SubscribeFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Event item);
     }
 }

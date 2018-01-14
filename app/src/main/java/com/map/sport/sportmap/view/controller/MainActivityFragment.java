@@ -18,9 +18,9 @@ import java.lang.reflect.Field;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class FirstActivityFragment extends Fragment {
+public class MainActivityFragment extends Fragment {
 
-    public FirstActivityFragment() {
+    public MainActivityFragment() {
     }
 
     @Override
