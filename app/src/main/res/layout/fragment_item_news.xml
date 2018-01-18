@@ -42,7 +42,8 @@
                 android:id="@+id/relativeLayoutPlayground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/relativeLayoutDate">
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayoutDate">
 
                 <ImageView
                     android:id="@+id/playgroundPhoto"
@@ -56,15 +57,16 @@
 
                 <TextView
                     android:id="@+id/namePlayground"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
 
                     android:layout_toRightOf="@+id/playgroundPhoto"
+                    android:gravity="fill_vertical|center_horizontal|fill_horizontal"
                     android:text="Поле у школы № 29"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textColor="@color/cardview_dark_background"
-                    android:textSize="15dp" />
+                    android:textSize="15sp" />
 
                 <View
                     android:layout_width="wrap_content"
@@ -80,8 +82,9 @@
 
                     <ImageView
                         android:id="@+id/userPhoto"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginRight="2dp"
                         android:src="@mipmap/ic_person_foreground" />
 
@@ -89,11 +92,11 @@
                         android:id="@+id/whoCreatePoll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="7dp"
                         android:layout_toRightOf="@+id/userPhoto"
-                        android:text=" Игорь создал опрос"
+                        android:text=" Игорь"
                         android:textColor="@color/cardview_dark_background"
-                        android:textSize="10dp" />
+                        android:textSize="10sp" />
                 </LinearLayout>
             </RelativeLayout>
 
@@ -113,8 +116,7 @@
                     android:text="Го на игру в 6?"
                     android:textAlignment="center"
                     android:textColor="@color/cardview_light_background"
-                    android:textSize="17dp"
-                    />
+                    android:textSize="17sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -152,16 +154,17 @@
                     <RadioButton
                         android:id="@+id/radioButton"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Да, приду" />
+                        android:text="Да, приду"
+                        android:textAlignment="center"
+                        android:textColorLink="@color/colorPrimary" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:elevation="9dp"
-                        android:fontFamily="serif-monospace"
+                        android:fontFamily="cursive"
                         android:text="10"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
@@ -178,17 +181,20 @@
                     <RadioButton
                         android:id="@+id/radioButton2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Не могу" />
+                        android:gravity="center_vertical|center_horizontal|center"
+                        android:text="Не могу"
+                        android:textAlignment="center"
+                        android:textColorLink="@color/colorPrimary" />
 
                     <TextView
                         android:id="@+id/textView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:elevation="9dp"
-                        android:fontFamily="serif-monospace"
+                        android:fontFamily="cursive"
+                        android:gravity="center_vertical|center_horizontal|center"
                         android:text="2"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
