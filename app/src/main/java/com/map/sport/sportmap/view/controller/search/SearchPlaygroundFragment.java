@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import com.map.sport.sportmap.R;
 
@@ -29,6 +31,9 @@ public class SearchPlaygroundFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Switch sw;
+    private TextView titleToollBar;
 
     private OnFragmentInteractionListener mListener;
 
@@ -61,15 +66,20 @@ public class SearchPlaygroundFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        //SearchFragment fragment = SearchFragment.newInstance(1);
-        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        toolbar.setVisibility(View.GONE);
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Поиск");
+        sw = (Switch) getActivity().findViewById(R.id.switch1);
+        sw.setVisibility(View.VISIBLE);
+        titleToollBar = (TextView) getActivity().findViewById(R.id.TitleToollBar);
+        titleToollBar.setText(R.string.title_search);
         return inflater.inflate(R.layout.fragment_search_playground, container, false);
     }
 
@@ -80,21 +90,17 @@ public class SearchPlaygroundFragment extends Fragment {
         }
     }
 
-  /*  @Override
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }*/
+
+    }
 
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        sw.setVisibility(View.GONE);
     }
 
     /**
