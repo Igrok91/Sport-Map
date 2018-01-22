@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_create"
-        android:icon="@drawable/ic_add_circle_black_24dp"
+        android:icon="@drawable/ic_add_black_24dp"
         android:title="" />
     <item
         android:id="@+id/navigation_subscribe"

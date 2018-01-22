@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.map.sport.sportmap.R;
 import com.map.sport.sportmap.view.controller.MainActivity;
@@ -26,6 +27,7 @@ public class NewsFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
+    private TextView titleToollBar;
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
@@ -55,11 +57,6 @@ public class NewsFragment extends Fragment {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
 
-        if (getActivity() != null) {
-            MainActivity mainActivity = (MainActivity)getActivity();
-            Toolbar toolbar = (Toolbar) mainActivity.findViewById(R.id.toolbar);
-            toolbar.setTitle(R.string.title_home);
-        }
 
     }
 
@@ -67,6 +64,7 @@ public class NewsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_news_list, container, false);
+        titleToollBar = (TextView) getActivity().findViewById(R.id.TitleToollBar);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -100,6 +98,10 @@ public class NewsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public  void setVisibilityToollbar() {
+        titleToollBar.setText(R.string.title_home);
     }
 
     /**

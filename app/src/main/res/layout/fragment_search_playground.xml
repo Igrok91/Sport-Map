@@ -12,18 +12,20 @@
         android:layout_height="match_parent"
         >
         <android.support.design.widget.TabLayout
-            android:id="@+id/TabLayout"
+            android:id="@+id/SearchTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             app:tabIndicatorColor="@color/colorPrimary">
 
             <android.support.design.widget.TabItem
+                android:id="@+id/TabItemList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Список" />
 
             <android.support.design.widget.TabItem
+                android:id="@+id/TabItemMaps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Карта" />
@@ -34,11 +36,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/TabLayout"
+            android:layout_below="@+id/SearchTabLayout"
             android:layout_marginTop="5dp">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewFilter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -49,7 +51,7 @@
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="47dp"
                 android:layout_weight="1"
                 android:background="@color/cardview_light_background"
                 app:srcCompat="@mipmap/ic_football_round" />
@@ -57,18 +59,18 @@
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="47dp"
                 android:layout_weight="1"
                 android:background="@color/cardview_light_background"
-                app:srcCompat="@mipmap/ic_basketball_round" />
+                app:srcCompat="@mipmap/ic_voleyball_round" />
 
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="47dp"
                 android:layout_weight="1"
                 android:background="@color/cardview_light_background"
-                app:srcCompat="@mipmap/ic_voleyball_round" />
+                app:srcCompat="@mipmap/ic_basketball_round" />
 
         </LinearLayout>
 
@@ -81,7 +83,7 @@
             android:orientation="horizontal"
             android:layout_below="@+id/lr_filter"
             >
-                <include layout="@layout/content_search"/>
+            <include layout="@layout/content_search" android:id="@+id/layoutContentList"/>
 <!--            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:map="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
@@ -90,7 +92,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context="com.map.sport.sportmap.view.controller.search.goggleMaps.MapsActivity" />-->
-            <include layout="@layout/activity_maps" android:visibility="gone"/>
+           <!-- <include layout="@layout/activity_maps" android:visibility="invisible" android:id="@+id/layoutMaps"/>-->
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lr_maps_playground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_below="@+id/lr_filter"
+            android:visibility="invisible"
+            >
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.map.sport.sportmap.view.controller.search.goggleMaps.MapsActivity"
+                />
 
         </LinearLayout>
 
