@@ -26,6 +26,7 @@ import com.map.sport.sportmap.view.controller.profile.ProfileFragment;
 import com.map.sport.sportmap.view.controller.search.SearchPlaygroundFragment;
 
 import com.map.sport.sportmap.view.controller.subscribe.SubscribeFragment;
+import com.map.sport.sportmap.view.controller.subscribe.SubscribePlaygroundFragment;
 
 import java.lang.reflect.Field;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private NewsFragment newsFragment;
     private CreateFragment createFragment;
     private SubscribeFragment subscribeFragment;
+    private SubscribePlaygroundFragment playgroundFragment;
     private ProfileFragment profileFragment;
     private View searchView;
     private View actionView;
@@ -83,13 +85,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_create:
                         return true;
                     case R.id.navigation_subscribe:
-                        searchView.setVisibility(View.INVISIBLE);
+                        searchPlaygroundFragment.setVisibilty(searchView);
                         actionView.setVisibility(View.INVISIBLE);
                         subscribeView.setVisibility(View.VISIBLE);
                         profileView.setVisibility(View.INVISIBLE);
+                        playgroundFragment.setVisibilityToollbar();
                         return true;
                     case R.id.navigation_profile:
-                        searchView.setVisibility(View.INVISIBLE);
+                        searchPlaygroundFragment.setVisibilty(searchView);
                         actionView.setVisibility(View.INVISIBLE);
                         subscribeView.setVisibility(View.INVISIBLE);
                         profileView.setVisibility(View.VISIBLE);
@@ -106,11 +109,12 @@ public class MainActivity extends AppCompatActivity {
         newsFragment = NewsFragment.newInstance(1);
         searchPlaygroundFragment = SearchPlaygroundFragment.newInstance("asd", "asd");
         createFragment = CreateFragment.newInstance("as", "asd");
-        subscribeFragment = SubscribeFragment.newInstance(1);
+        //subscribeFragment = SubscribeFragment.newInstance(1);
         profileFragment = ProfileFragment.newInstance("as", "asd");
+        playgroundFragment = SubscribePlaygroundFragment.newInstance("asd", "asd");
         ft.add(R.id.fl_content, newsFragment);
         ft.add(R.id.search_content, searchPlaygroundFragment );
-        ft.add(R.id.subscribe_content, subscribeFragment);
+        ft.add(R.id.subscribe_content, playgroundFragment);
         ft.add(R.id.profile_content, profileFragment);
         ft.commit();
     }

@@ -6,8 +6,7 @@
     android:name="com.map.sport.sportmap.SubscribeFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_margin="8dp"
     app:layoutManager="LinearLayoutManager"
     tools:context=".view.controller.subscribe.SubscribeFragment"
     tools:listitem="@layout/fragment_item" />

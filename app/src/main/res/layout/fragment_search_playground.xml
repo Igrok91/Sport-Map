@@ -58,7 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/lr_title"
             android:layout_marginTop="5dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,14 +78,13 @@
             </LinearLayout>
 
 
-
             <ImageButton
                 android:id="@+id/imageButtonAll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/cardview_light_background"
-                app:srcCompat="@mipmap/ic_all_round" />
+                app:srcCompat="@mipmap/ic_all2_round" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
@@ -113,13 +113,30 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:id="@+id/lr_title_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lr_filter"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:padding="2dp"
+                android:text="Площадки рядом с вами" />
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/lr_list_playground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_below="@+id/lr_filter"
+            android:layout_below="@+id/lr_title_list"
             >
             <include layout="@layout/content_search" android:id="@+id/layoutContentList"/>
 <!--            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
