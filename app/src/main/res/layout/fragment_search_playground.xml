@@ -11,11 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+
         <android.support.design.widget.TabLayout
             android:id="@+id/SearchTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
+            android:paddingBottom="2dp"
             app:tabIndicatorColor="@color/colorPrimary">
 
             <android.support.design.widget.TabItem
@@ -31,35 +33,70 @@
                 android:text="Карта" />
 
         </android.support.design.widget.TabLayout>
+
         <LinearLayout
-            android:id="@+id/lr_filter"
+            android:id="@+id/lr_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/SearchTabLayout"
-            android:layout_marginTop="5dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textViewFilter"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center"
+                android:padding="2dp"
+                android:text="Фильтры" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lr_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lr_title"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textViewSport"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/cardview_light_background"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="Вид спорта:" />
+            </LinearLayout>
+
+
+
+            <ImageButton
+                android:id="@+id/imageButtonAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@color/cardview_light_background"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="Фильтры" />
+                app:srcCompat="@mipmap/ic_all_round" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/cardview_light_background"
-                app:srcCompat="@mipmap/ic_football_round" />
+                app:srcCompat="@mipmap/ic_football2_round" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/cardview_light_background"
                 app:srcCompat="@mipmap/ic_voleyball_round" />
@@ -67,7 +104,7 @@
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/cardview_light_background"
                 app:srcCompat="@mipmap/ic_basketball_round" />

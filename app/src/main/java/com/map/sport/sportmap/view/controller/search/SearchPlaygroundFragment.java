@@ -55,6 +55,7 @@ public class SearchPlaygroundFragment extends Fragment implements CompoundButton
     private ImageButton footbalButton;
     private ImageButton voleyballButton;
     private ImageButton basketBallButton;
+    private ImageButton allButton;
 
     private OnFragmentInteractionListener mListener;
 
@@ -195,9 +196,12 @@ public class SearchPlaygroundFragment extends Fragment implements CompoundButton
         footbalButton = mainActivity.findViewById(R.id.imageButton3);
         voleyballButton = mainActivity.findViewById(R.id.imageButton2);
         basketBallButton = mainActivity.findViewById(R.id.imageButton);
+        allButton = mainActivity.findViewById(R.id.imageButtonAll);
+
         footbalButton.setOnClickListener(clickListener);
         voleyballButton.setOnClickListener(clickListener);
         basketBallButton.setOnClickListener(clickListener);
+        allButton.setOnClickListener(clickListener);
 
    /*     footbalButton.setOnFocusChangeListener(focusChangeListener);
         voleyballButton.setOnFocusChangeListener(focusChangeListener);
@@ -213,12 +217,20 @@ public class SearchPlaygroundFragment extends Fragment implements CompoundButton
                 footbalButton.setImageResource(R.mipmap.ic_football_select_round);
                 voleyballButton.setImageResource(R.mipmap.ic_voleyball_round);
                 basketBallButton.setImageResource(R.mipmap.ic_basketball_round);
+                allButton.setImageResource(R.mipmap.ic_all_round);
             } else if (id == R.id.imageButton2) {
-                footbalButton.setImageResource(R.mipmap.ic_football_round);
+                footbalButton.setImageResource(R.mipmap.ic_football2_round);
                 voleyballButton.setImageResource(R.mipmap.ic_voleyball_select_round);
                 basketBallButton.setImageResource(R.mipmap.ic_basketball_round);
+                allButton.setImageResource(R.mipmap.ic_all_round);
             } else if (id == R.id.imageButton) {
-                footbalButton.setImageResource(R.mipmap.ic_football_round);
+                footbalButton.setImageResource(R.mipmap.ic_football2_round);
+                voleyballButton.setImageResource(R.mipmap.ic_voleyball_round);
+                basketBallButton.setImageResource(R.mipmap.ic_basketball_select_round);
+                allButton.setImageResource(R.mipmap.ic_all_round);
+            } else if (id == R.id.imageButtonAll) {
+                allButton.setImageResource(R.mipmap.ic_all_select_round);
+                footbalButton.setImageResource(R.mipmap.ic_football2_round);
                 voleyballButton.setImageResource(R.mipmap.ic_voleyball_round);
                 basketBallButton.setImageResource(R.mipmap.ic_basketball_select_round);
             }
