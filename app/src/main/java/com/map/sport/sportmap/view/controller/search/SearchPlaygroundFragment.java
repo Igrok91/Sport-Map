@@ -100,7 +100,7 @@ public class SearchPlaygroundFragment extends Fragment implements CompoundButton
         sw = (Switch) activity.findViewById(R.id.switch1);
         titleToollBar = (TextView) activity.findViewById(R.id.TitleToollBar);
         button = (ImageButton) activity.findViewById(R.id.imageButton4);
-        sw.setOnCheckedChangeListener(this);
+
         tabItem = (TabItem) activity.findViewById(R.id.TabItemList);
 
         tabItemMaps = (TabItem) activity.findViewById(R.id.TabItemMaps);
@@ -133,11 +133,18 @@ public class SearchPlaygroundFragment extends Fragment implements CompoundButton
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        View costList = (View) activity.findViewById(R.id.lr_cost_list);
+        View freeList = (View) activity.findViewById(R.id.layoutContentList);
         if (isChecked) {
             sw.setText(R.string.cost);
+            costList.setVisibility(View.VISIBLE);
+            freeList.setVisibility(View.INVISIBLE);
         } else {
             sw.setText(R.string.free);
+            costList.setVisibility(View.INVISIBLE);
+            freeList.setVisibility(View.VISIBLE);
         }
+
         Toast.makeText(activity, (isChecked ? "Платные площадки" : "Бесплатные площадки"), Toast.LENGTH_SHORT).show();
     }
 
@@ -146,13 +153,24 @@ public class SearchPlaygroundFragment extends Fragment implements CompoundButton
     public void onTabSelected(TabLayout.Tab tab) {
         String tabId = (String) tab.getText();
         View layoutMaps = (View) activity.findViewById(R.id.lr_maps_playground);
+        View costList = (View) activity.findViewById(R.id.lr_cost_list);
         View layoutList = (View) activity.findViewById(R.id.lr_list_playground);
         if (tabId.equalsIgnoreCase("карта")) {
+            if (sw.isChecked()) {
+               costList.setVisibility(View.INVISIBLE);
+            } else {
+                layoutList.setVisibility(View.INVISIBLE);
+            }
             layoutMaps.setVisibility(View.VISIBLE);
-            layoutList.setVisibility(View.INVISIBLE);
+
+
         } else if (tabId.equalsIgnoreCase("список")) {
+            if (sw.isChecked()) {
+                costList.setVisibility(View.VISIBLE);
+            } else {
+                layoutList.setVisibility(View.VISIBLE);
+            }
             layoutMaps.setVisibility(View.INVISIBLE);
-            layoutList.setVisibility(View.VISIBLE);
         }
     }
 
@@ -176,6 +194,7 @@ public class SearchPlaygroundFragment extends Fragment implements CompoundButton
     public void setClickListener(MainActivity mainActivity) {
         tabLayout = (TabLayout) mainActivity.findViewById(R.id.SearchTabLayout);
         tabLayout.addOnTabSelectedListener(this);
+        sw.setOnCheckedChangeListener(this);
         footbalButton = mainActivity.findViewById(R.id.imageButton3);
         voleyballButton = mainActivity.findViewById(R.id.imageButton2);
         basketBallButton = mainActivity.findViewById(R.id.imageButton);
@@ -186,9 +205,6 @@ public class SearchPlaygroundFragment extends Fragment implements CompoundButton
         basketBallButton.setOnClickListener(clickListener);
         allButton.setOnClickListener(clickListener);
 
-   /*     footbalButton.setOnFocusChangeListener(focusChangeListener);
-        voleyballButton.setOnFocusChangeListener(focusChangeListener);
-        basketBallButton.setOnFocusChangeListener(focusChangeListener);*/
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener() {

@@ -137,6 +137,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_below="@+id/lr_title_list"
+            android:visibility="visible"
             >
             <include layout="@layout/content_search" android:id="@+id/layoutContentList"/>
 <!--            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
@@ -168,6 +169,18 @@
                 tools:context="com.map.sport.sportmap.view.controller.search.goggleMaps.MapsActivity"
                 />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lr_cost_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_below="@+id/lr_filter"
+            android:visibility="invisible"
+            >
+
+            <include layout="@layout/content_search_cost" android:id="@+id/layoutCostContentList"/>
         </LinearLayout>
 
     </RelativeLayout>

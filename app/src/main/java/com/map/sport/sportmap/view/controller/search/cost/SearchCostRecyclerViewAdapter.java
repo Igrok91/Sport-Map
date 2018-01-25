@@ -1,14 +1,14 @@
-package com.map.sport.sportmap.view.controller.search;
+package com.map.sport.sportmap.view.controller.search.cost;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.map.sport.sportmap.R;
-import com.map.sport.sportmap.view.controller.search.SearchFragment.OnListFragmentInteractionListener;
-import com.map.sport.sportmap.view.controller.search.dummy.SearchContent.PlaygroundItem;
+import com.map.sport.sportmap.view.controller.search.cost.dummy.SearchCostContent.PlaygroundItem;
+
+
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ import java.util.List;
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecyclerViewAdapter.ViewHolder> {
+public class SearchCostRecyclerViewAdapter extends RecyclerView.Adapter<SearchCostRecyclerViewAdapter.ViewHolder> {
 
     private final List<PlaygroundItem> mValues;
-    private final OnListFragmentInteractionListener mListener;
+    private final SearchCostFragment.OnListFragmentInteractionListener mListener;
 
-    public SearchRecyclerViewAdapter(List<PlaygroundItem> items, OnListFragmentInteractionListener listener) {
+    public SearchCostRecyclerViewAdapter(List<PlaygroundItem> items, SearchCostFragment.OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -30,7 +30,7 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_search, parent, false);
+                .inflate(R.layout.fragment_search_cost, parent, false);
         return new ViewHolder(view);
     }
 

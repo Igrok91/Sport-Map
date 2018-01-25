@@ -1,4 +1,4 @@
-package com.map.sport.sportmap.view.controller.search.dummy;
+package com.map.sport.sportmap.view.controller.search.cost.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class SearchContent {
+public class SearchCostContent {
 
     /**
      * An array of sample (dummy) items.
@@ -23,7 +23,7 @@ public class SearchContent {
      */
     public static final Map<String, PlaygroundItem> ITEM_MAP = new HashMap<String, PlaygroundItem>();
 
-    private static final int COUNT = 3;
+    private static final int COUNT = 2;
 
     static {
         // Add some sample items.
