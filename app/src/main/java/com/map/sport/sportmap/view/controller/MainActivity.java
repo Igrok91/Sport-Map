@@ -3,6 +3,7 @@ package com.map.sport.sportmap.view.controller;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
@@ -14,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -46,21 +48,26 @@ public class MainActivity extends AppCompatActivity {
     private View subscribeView;
     private View profileView;
     private MainActivity mainActivity;
+    private Toolbar toolbar;
+    private BottomNavigationView navigation;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         addFragmentToContext();
         searchView = (View) findViewById(R.id.search_content);
         actionView = (View) findViewById(R.id.fl_content);
         subscribeView = (View) findViewById(R.id.subscribe_content);
         profileView = (View) findViewById(R.id.profile_content);
-        mainActivity = this;
+
+
+
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -68,11 +75,12 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
                         searchPlaygroundFragment.setVisibilty(searchView);
-                        actionView.setVisibility(View.VISIBLE);
                         subscribeView.setVisibility(View.INVISIBLE);
                         profileView.setVisibility(View.INVISIBLE);
 
+                        actionView.setVisibility(View.VISIBLE);
                         newsFragment.setVisibilityToollbar();
+                        newsFragment.setClickListener(mainActivity);
                         return true;
                     case R.id.navigation_search:
                         searchView.setVisibility(View.VISIBLE);
@@ -103,6 +111,19 @@ public class MainActivity extends AppCompatActivity {
         });
         disableMenuShiftMode(navigation);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mainActivity = this;
+    }
+
 
     private void addFragmentToContext() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -142,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
             // Log.e("BNVHelper", "Unable to change value of shift mode", e);
         }
     }
-
 
 
 

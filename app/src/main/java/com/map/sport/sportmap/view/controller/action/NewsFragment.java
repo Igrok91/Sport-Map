@@ -6,10 +6,10 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.map.sport.sportmap.R;
@@ -31,6 +31,13 @@ public class NewsFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    private RadioButton radioButton1;
+    private RadioButton radioButton2;
+    private TextView countVoice1;
+    private TextView countVoice2;
+
+    private static boolean toggleOn1 = false;
+    private static boolean toggleOn2 = false;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -65,7 +72,6 @@ public class NewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_news_list, container, false);
         titleToollBar = (TextView) getActivity().findViewById(R.id.TitleToollBar);
-
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -100,8 +106,18 @@ public class NewsFragment extends Fragment {
         mListener = null;
     }
 
-    public  void setVisibilityToollbar() {
+    public void setVisibilityToollbar() {
         titleToollBar.setText(R.string.title_home);
+    }
+
+    public void setClickListener(MainActivity mainActivity) {
+        radioButton1 = (RadioButton) mainActivity.findViewById(R.id.radioButton);
+        radioButton2 = (RadioButton) mainActivity.findViewById(R.id.radioButton2);
+        radioButton1.setOnClickListener(radioButtonClickListener);
+        radioButton2.setOnClickListener(radioButtonClickListener);
+
+        countVoice1 = (TextView) mainActivity.findViewById(R.id.countVoice1);
+        countVoice2 = (TextView) mainActivity.findViewById(R.id.countVoice2);
     }
 
     /**
@@ -117,5 +133,62 @@ public class NewsFragment extends Fragment {
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(Event item);
+    }
+
+    View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            RadioButton rb = (RadioButton) v;
+            switch (rb.getId()) {
+                case R.id.radioButton:
+                    if (toggleOn1) {
+                        rb.setChecked(false);
+                        countVoice1.setText(decreaseCountVoice(countVoice1));
+                        toggleOn1 = false;
+                    }
+                    if (rb.isChecked()) {
+                        if (toggleOn2) {
+                            radioButton2.setChecked(false);
+                            toggleOn2 = false;
+                            countVoice2.setText(decreaseCountVoice(countVoice2));
+                        }
+                        countVoice1.setText(multiplyCountVoice(countVoice1));
+                        toggleOn1 = true;
+                    }
+                    radioButton2.setChecked(false);
+                    break;
+                case R.id.radioButton2:
+                    if (toggleOn2) {
+                        rb.setChecked(false);
+                        countVoice2.setText(decreaseCountVoice(countVoice2));
+                        toggleOn2 = false;
+                    }
+                    if (rb.isChecked()) {
+                        if (toggleOn1) {
+                            radioButton1.setChecked(false);
+                            toggleOn1 = false;
+                            countVoice1.setText(decreaseCountVoice(countVoice1));
+                        }
+                        countVoice2.setText(multiplyCountVoice(countVoice2));
+                        toggleOn2 = true;
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    private String decreaseCountVoice(TextView countVoice1) {
+        int count = Integer.parseInt((String) countVoice1.getText());
+        --count;
+        return String.valueOf(count);
+    }
+
+    private String multiplyCountVoice(TextView countVoice1) {
+        int count = Integer.parseInt((String) countVoice1.getText());
+        ++count;
+        return String.valueOf(count);
     }
 }

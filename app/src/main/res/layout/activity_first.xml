@@ -117,7 +117,6 @@
         </FrameLayout>
 
         <include layout="@layout/content_first" />
-
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
