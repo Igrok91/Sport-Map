@@ -27,7 +27,7 @@ public class NewsDummyContent {
      */
     public static final Map<String, Event> ITEM_MAP = new HashMap<String, Event>();
 
-    private static final int COUNT = 2;
+    private static final int COUNT = 1;
 
     static {
         // Add some sample items.

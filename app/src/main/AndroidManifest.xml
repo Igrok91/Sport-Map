@@ -53,10 +53,13 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-
         <activity
             android:name=".view.controller.search.goggleMaps.MapsActivity"
             android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".view.controller.create.CreateActivity"
+            android:label="@string/title_activity_create"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.map.sport.sportmap.R;
 import com.map.sport.sportmap.view.controller.MainActivity;
+import com.map.sport.sportmap.view.controller.create.CreateActivity;
 
 
 /**
@@ -192,6 +193,21 @@ public class SearchPlaygroundFragment extends Fragment implements CompoundButton
 
 
     public void setClickListener(MainActivity mainActivity) {
+        tabLayout = (TabLayout) mainActivity.findViewById(R.id.SearchTabLayout);
+        tabLayout.addOnTabSelectedListener(this);
+        sw.setOnCheckedChangeListener(this);
+        footbalButton = mainActivity.findViewById(R.id.imageButton3);
+        voleyballButton = mainActivity.findViewById(R.id.imageButton2);
+        basketBallButton = mainActivity.findViewById(R.id.imageButton);
+        allButton = mainActivity.findViewById(R.id.imageButtonAll);
+
+        footbalButton.setOnClickListener(clickListener);
+        voleyballButton.setOnClickListener(clickListener);
+        basketBallButton.setOnClickListener(clickListener);
+        allButton.setOnClickListener(clickListener);
+
+    }
+    public void setClickListener(CreateActivity mainActivity) {
         tabLayout = (TabLayout) mainActivity.findViewById(R.id.SearchTabLayout);
         tabLayout.addOnTabSelectedListener(this);
         sw.setOnCheckedChangeListener(this);

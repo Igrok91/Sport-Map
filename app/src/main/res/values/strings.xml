@@ -57,4 +57,5 @@
     <string name="send_email">Send Email</string>
     <string name="free">Free</string>
     <string name="cost">Cost</string>
+    <string name="title_activity_create">CreateActivity</string>
 </resources>

@@ -16,6 +16,7 @@ import com.map.sport.sportmap.R;
 import com.map.sport.sportmap.view.controller.MainActivity;
 import com.map.sport.sportmap.view.controller.action.dummy.NewsDummyContent;
 import com.map.sport.sportmap.view.controller.action.dummy.NewsDummyContent.Event;
+import com.map.sport.sportmap.view.controller.create.CreateActivity;
 
 /**
  * A fragment representing a list of Items.
@@ -111,6 +112,16 @@ public class NewsFragment extends Fragment {
     }
 
     public void setClickListener(MainActivity mainActivity) {
+        radioButton1 = (RadioButton) mainActivity.findViewById(R.id.radioButton);
+        radioButton2 = (RadioButton) mainActivity.findViewById(R.id.radioButton2);
+        radioButton1.setOnClickListener(radioButtonClickListener);
+        radioButton2.setOnClickListener(radioButtonClickListener);
+
+        countVoice1 = (TextView) mainActivity.findViewById(R.id.countVoice1);
+        countVoice2 = (TextView) mainActivity.findViewById(R.id.countVoice2);
+    }
+
+    public void setClickListener(CreateActivity mainActivity) {
         radioButton1 = (RadioButton) mainActivity.findViewById(R.id.radioButton);
         radioButton2 = (RadioButton) mainActivity.findViewById(R.id.radioButton2);
         radioButton1.setOnClickListener(radioButtonClickListener);
