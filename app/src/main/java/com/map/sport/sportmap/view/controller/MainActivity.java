@@ -8,15 +8,22 @@ import android.support.annotation.Nullable;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -24,7 +31,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.map.sport.sportmap.R;
 import com.map.sport.sportmap.view.controller.action.NewsFragment;
 import com.map.sport.sportmap.view.controller.create.CreateActivity;
-import com.map.sport.sportmap.view.controller.create.CreateFragment;
+
+import com.map.sport.sportmap.view.controller.create.dialog.CreateDialogFragment;
 import com.map.sport.sportmap.view.controller.profile.ProfileFragment;
 
 import com.map.sport.sportmap.view.controller.search.SearchPlaygroundFragment;
@@ -41,14 +49,16 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private SearchPlaygroundFragment searchPlaygroundFragment;
     private NewsFragment newsFragment;
-    private CreateFragment createFragment;
     private SubscribeFragment subscribeFragment;
     private SubscribePlaygroundFragment playgroundFragment;
     private ProfileFragment profileFragment;
+    private CreateDialogFragment createDialogFragment;
+
     private View searchView;
     private View actionView;
     private View subscribeView;
     private View profileView;
+    private View createView;
     private MainActivity mainActivity;
     private Toolbar toolbar;
     private BottomNavigationView navigation;
@@ -67,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         actionView = (View) findViewById(R.id.fl_content);
         subscribeView = (View) findViewById(R.id.subscribe_content);
         profileView = (View) findViewById(R.id.profile_content);
+        createView = (View) findViewById(R.id.create_content);
 
 
 
@@ -95,6 +106,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_create:
                       /*  Intent intent = new Intent(MainActivity.this, CreateActivity.class);
                         startActivity(intent);*/
+                        searchView.setVisibility(View.INVISIBLE);
+                        actionView.setVisibility(View.INVISIBLE);
+                        subscribeView.setVisibility(View.INVISIBLE);
+                        profileView.setVisibility(View.INVISIBLE);
+                        DialogFragment dialogFragment = new CreateDialogFragment();
+                        dialogFragment.show(getSupportFragmentManager(), "create");
                         return true;
                     case R.id.navigation_subscribe:
                         searchPlaygroundFragment.setVisibilty(searchView);
@@ -116,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
         disableMenuShiftMode(navigation);
     }
 
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -133,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         newsFragment = NewsFragment.newInstance(1);
         searchPlaygroundFragment = SearchPlaygroundFragment.newInstance("asd", "asd");
-        createFragment = CreateFragment.newInstance("as", "asd");
         //subscribeFragment = SubscribeFragment.newInstance(1);
         profileFragment = ProfileFragment.newInstance("as", "asd");
         playgroundFragment = SubscribePlaygroundFragment.newInstance("asd", "asd");

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="playground_subscribe" >
+        <item>Поле у школы № 29</item>
+        <item>Спортивный комплекс Алексеева</item>
+    </string-array>
+</resources>

@@ -11,54 +11,26 @@
         android:layout_height="match_parent"
         >
         <android.support.design.widget.AppBarLayout
-            android:id="@+id/AppBarLayout"
+            android:id="@+id/AppBarLayoutCreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/toolbarCreate"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:popupTheme="@style/AppTheme.PopupOverlay">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-
-                    <TextView
-                        android:id="@+id/TitleToollBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="Добавление события"
-                        android:textSize="20sp" />
-
-                    <Switch
-                        android:id="@+id/switch1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentTop="true"
-                        android:layout_toStartOf="@+id/imageButton4"
-                        android:layout_weight="1"
-                        android:padding="2dp"
-                        android:text="@string/free"
-                        android:visibility="invisible" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:background="@color/colorPrimary"
-                        android:paddingRight="5dp"
-                        android:visibility="invisible"
-                        app:srcCompat="@drawable/ic_add_black_24dp" />
-
-                </RelativeLayout>
-
+                android:elevation="0dp"
+                android:padding="0dp"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                android:layout_toRightOf="@+id/imageButton5">
+                <ImageButton
+                    android:id="@+id/imageButton6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
             </android.support.v7.widget.Toolbar>
 
 
@@ -78,70 +50,33 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textView4"
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/CreateTabLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Выберите место события"
-                    android:textSize="17sp" />
-                <FrameLayout
-                    android:id="@+id/fr_subscribe"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/textView4">
 
-                </FrameLayout>
+                    android:paddingBottom="2dp"
+                    app:tabIndicatorColor="@color/colorPrimary">
+
+                    <android.support.design.widget.TabItem
+                        android:id="@+id/TabItemNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Новое" />
+
+                    <android.support.design.widget.TabItem
+                        android:id="@+id/TabItemOld"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Шаблон" />
+
+                </android.support.design.widget.TabLayout>
+
             </RelativeLayout>
 
         </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/search_contentCreate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/AppBarLayoutCreate"
-            android:layout_weight="1"
-            android:visibility="invisible">
-        </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/create_contentCreate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/AppBarLayoutCreate"
-            android:layout_weight="1"
-            android:visibility="invisible">
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/subscribe_contentCreate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/AppBarLayoutCreate"
-            android:layout_weight="1"
-            android:visibility="invisible">
-        </FrameLayout>
-
-
-        <FrameLayout
-            android:id="@+id/profile_contentCreate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/AppBarLayoutCreate"
-            android:layout_weight="1"
-            android:visibility="invisible">
-        </FrameLayout>
-
-        <include
-            layout="@layout/content_first"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
     </RelativeLayout>
 
 

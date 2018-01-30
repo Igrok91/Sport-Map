@@ -93,6 +93,7 @@
             android:layout_below="@+id/AppBarLayout"
             android:layout_weight="1"
             android:visibility="invisible">
+
         </FrameLayout>
 
         <FrameLayout
