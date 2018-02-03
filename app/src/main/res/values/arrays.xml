@@ -2,6 +2,6 @@
 <resources>
     <string-array name="playground_subscribe" >
         <item>Поле у школы № 29</item>
-        <item>Спортивный комплекс Алексеева</item>
+        <item>Спортивный комплекс им. Алексеева</item>
     </string-array>
 </resources>

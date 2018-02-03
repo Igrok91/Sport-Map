@@ -9,7 +9,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         >
+
+
         <android.support.design.widget.AppBarLayout
             android:id="@+id/AppBarLayoutCreate"
             android:layout_width="match_parent"
@@ -20,36 +23,62 @@
                 android:id="@+id/toolbarCreate"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:layout_toRightOf="@+id/imageButton5"
                 android:background="?attr/colorPrimary"
                 android:elevation="0dp"
                 android:padding="0dp"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                android:layout_toRightOf="@+id/imageButton5">
-                <ImageButton
-                    android:id="@+id/imageButton6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imageButton6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:background="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="30dp"
+                        android:layout_toRightOf="@+id/imageButton6"
+                        android:gravity="fill_vertical|center_horizontal|center"
+                        android:text="Создание опроса"
+                        android:textSize="20sp" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="false"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="false"
+                        android:layout_marginRight="30dp"
+                        android:background="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_done_black_24dp" />
+
+                </RelativeLayout>
+
+
             </android.support.v7.widget.Toolbar>
-
-
 
 
         </android.support.design.widget.AppBarLayout>
 
-        <FrameLayout
-            android:id="@+id/fl_contentCreate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/AppBarLayoutCreate"
-            android:layout_weight="1" >
-
-
-            <RelativeLayout
+        <RelativeLayout
+                android:id="@+id/rl_tab_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_below="@+id/AppBarLayoutCreate"
+                >
                 <android.support.design.widget.TabLayout
                     android:id="@+id/CreateTabLayout"
                     android:layout_width="match_parent"
@@ -62,19 +91,214 @@
                         android:id="@+id/TabItemNew"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Новое" />
+                        android:text="новый" />
 
                     <android.support.design.widget.TabItem
                         android:id="@+id/TabItemOld"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Шаблон" />
+                        android:text="Шаблоны" />
 
                 </android.support.design.widget.TabLayout>
 
-            </RelativeLayout>
+                <FrameLayout
+                    android:id="@+id/fl_contentCreate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/CreateTabLayout"
+                    android:gravity="center_horizontal"
+                    android:visibility="visible">
 
-        </FrameLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Поле у школы № 29"
+                            android:textSize="16sp" />
+
+                        <RelativeLayout
+                            android:id="@+id/lr_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textView8"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:id="@+id/lr_question"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="false"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginVertical="5dp"
+                                android:background="@color/cardview_light_background"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textView11"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingLeft="10dp"
+                                    android:paddingTop="2dp"
+                                    android:text="Описание"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <EditText
+                                    android:id="@+id/editText2"
+                                    style="@style/Widget.AppCompat.EditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="@color/cardview_dark_background"
+                                    android:ems="10"
+                                    android:gravity="left"
+                                    android:hint="Го на игру в 18 ?"
+                                    android:inputType="textPersonName"
+                                    android:paddingLeft="10dp"
+                                    android:selectAllOnFocus="false"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/colorPrimaryDark" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lr_question"
+                                android:layout_marginVertical="5dp"
+                                android:background="@color/cardview_light_background"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textView12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingLeft="10dp"
+                                    android:paddingTop="2dp"
+                                    android:text="Варианты ответа"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <LinearLayout
+                                    android:id="@+id/lr_answer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:paddingBottom="5dp">
+
+                                    <EditText
+                                        android:id="@+id/editText3"
+                                        style="@style/Widget.AppCompat.EditText"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:backgroundTint="@color/cardview_dark_background"
+                                        android:ems="10"
+                                        android:gravity="center"
+                                        android:hint="Да, приду"
+                                        android:inputType="textPersonName"
+                                        android:textColor="@color/colorPrimaryDark" />
+
+                                    <ImageButton
+                                        android:id="@+id/imageButton9"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="@color/cardview_light_background"
+                                        app:srcCompat="@drawable/ic_clear_black_24dp" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/save"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/lr_description"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingTop="5dp">
+
+
+                            <Button
+                                android:id="@+id/button2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@color/cardview_light_background"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:text="Сохранить в шаблоны" />
+
+                            <TextView
+                                android:id="@+id/textView13"
+                                style="@android:style/Widget.TextView"
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/cardview_light_background"
+                                android:backgroundTint="@color/cardview_light_background"
+                                android:fontFamily="monospace"
+                                android:gravity="center"
+                                android:textSize="20sp" />
+
+                            <Button
+                                android:id="@+id/button3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@color/cardview_light_background"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:text="Добавить вариант" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lr_dop"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/save"
+                            android:layout_marginVertical="10dp"
+                            android:background="@color/cardview_light_background"
+                            android:orientation="vertical">
+
+                            <Switch
+                                android:id="@+id/switch2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Доп. настройки"
+                                android:textColor="@color/colorPrimary" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_contentCreate2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="false"
+                    android:visibility="invisible"
+                    android:layout_below="@id/CreateTabLayout">
+                    <include layout="@layout/content_create_template" android:id="@+id/layoutContentList2"/>
+
+                </FrameLayout>
+
+            </RelativeLayout>
 
 
     </RelativeLayout>

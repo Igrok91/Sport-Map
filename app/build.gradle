@@ -33,4 +33,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'ru.egslava:MaskedEditText:1.0.5'
+    implementation 'com.tomer:fadingtextview:1.8'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.7'
 }

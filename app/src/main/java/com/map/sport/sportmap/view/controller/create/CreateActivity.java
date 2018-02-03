@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -21,7 +22,7 @@ import com.map.sport.sportmap.view.controller.subscribe.SubscribePlaygroundFragm
 
 import java.lang.reflect.Field;
 
-public class CreateActivity extends AppCompatActivity {
+public class CreateActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
 
     private SearchPlaygroundFragment searchPlaygroundFragment;
     private NewsFragment newsFragment;
@@ -29,13 +30,15 @@ public class CreateActivity extends AppCompatActivity {
     private SubscribeFragment subscribeFragment;
     private SubscribePlaygroundFragment playgroundFragment;
     private ProfileFragment profileFragment;
-    private View searchView;
-    private View actionView;
+    private View newPoll;
+    private View template;
     private View subscribeView;
     private View profileView;
     private CreateActivity createActivity;
     private Toolbar toolbar;
     private BottomNavigationView navigation;
+
+    private TabLayout tabLayout;
 
 
 
@@ -45,9 +48,10 @@ public class CreateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create);
         toolbar = (Toolbar) findViewById(R.id.toolbarCreate);
         setSupportActionBar(toolbar);
-        actionView = (View) findViewById(R.id.fl_contentCreate);
+        template = (View) findViewById(R.id.fl_contentCreate2);
 
-
+        tabLayout = (TabLayout) findViewById(R.id.CreateTabLayout);
+        tabLayout.addOnTabSelectedListener(this);
 
 
     }
@@ -60,5 +64,28 @@ public class CreateActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+        String tabId = (String) tab.getText();
+        View newsPoll = (View) findViewById(R.id.fl_contentCreate);
+        if (tabId.equalsIgnoreCase("новый")) {
+            newsPoll.setVisibility(View.VISIBLE);
+            template.setVisibility(View.INVISIBLE);
+        } else {
+            newsPoll.setVisibility(View.INVISIBLE);
+            template.setVisibility(View.VISIBLE);
+        }
 
+
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
+    }
 }
