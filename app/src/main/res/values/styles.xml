@@ -22,5 +22,14 @@
         <item name="queryHint">@string/search_hint</item>
         <item name="android:imeActionId">6</item>
     </style>
+    <style name="MyRadioButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/ic_all2_background</item>
+        <item name="colorControlNormal">@color/ic_all2_background</item>
+    </style>
+
+    <style name="MyRadioButton2" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/colorPressedButton</item>
+        <item name="colorControlNormal">@color/colorPressedButton</item>
+    </style>
 
 </resources>

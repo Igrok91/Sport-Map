@@ -1,6 +1,7 @@
 package com.map.sport.sportmap.view.controller.action;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -154,15 +155,21 @@ public class NewsFragment extends Fragment {
                 case R.id.radioButton:
                     if (toggleOn1) {
                         rb.setChecked(false);
+                        rb.setBackgroundColor(getResources().getColor(R.color.ic_all2_background));
+                        countVoice1.setBackgroundColor(getResources().getColor(R.color.ic_all2_background));
                         countVoice1.setText(decreaseCountVoice(countVoice1));
                         toggleOn1 = false;
                     }
                     if (rb.isChecked()) {
                         if (toggleOn2) {
+                            radioButton2.setBackgroundColor(getResources().getColor(R.color.ic_all2_background));
+                            countVoice2.setBackgroundColor(getResources().getColor(R.color.ic_all2_background));
                             radioButton2.setChecked(false);
                             toggleOn2 = false;
                             countVoice2.setText(decreaseCountVoice(countVoice2));
                         }
+                        rb.setBackgroundColor(getResources().getColor(R.color.colorPressedButton));
+                        countVoice1.setBackgroundColor(getResources().getColor(R.color.colorPressedButton));
                         countVoice1.setText(multiplyCountVoice(countVoice1));
                         toggleOn1 = true;
                     }
@@ -171,15 +178,21 @@ public class NewsFragment extends Fragment {
                 case R.id.radioButton2:
                     if (toggleOn2) {
                         rb.setChecked(false);
+                        rb.setBackgroundColor(getResources().getColor(R.color.ic_all2_background));
+                        countVoice2.setBackgroundColor(getResources().getColor(R.color.ic_all2_background));
                         countVoice2.setText(decreaseCountVoice(countVoice2));
                         toggleOn2 = false;
                     }
                     if (rb.isChecked()) {
                         if (toggleOn1) {
+                            radioButton1.setBackgroundColor(getResources().getColor(R.color.ic_all2_background));
+                            countVoice1.setBackgroundColor(getResources().getColor(R.color.ic_all2_background));
                             radioButton1.setChecked(false);
                             toggleOn1 = false;
                             countVoice1.setText(decreaseCountVoice(countVoice1));
                         }
+                        rb.setBackgroundColor(getResources().getColor(R.color.colorPressedButton));
+                        countVoice2.setBackgroundColor(getResources().getColor(R.color.colorPressedButton));
                         countVoice2.setText(multiplyCountVoice(countVoice2));
                         toggleOn2 = true;
                     }

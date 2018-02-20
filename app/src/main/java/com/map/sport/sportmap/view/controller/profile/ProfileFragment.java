@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.map.sport.sportmap.R;
 
@@ -28,6 +30,8 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private TextView titleToollBar;
+    private ImageButton imageButton;
 
     private OnFragmentInteractionListener mListener;
 
@@ -68,6 +72,8 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        titleToollBar = (TextView) getActivity().findViewById(R.id.TitleToollBar);
+        imageButton = (ImageButton) getActivity().findViewById(R.id.imageButton11);
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
@@ -93,6 +99,16 @@ public class ProfileFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void setVisibilityToollbar() {
+        titleToollBar.setText("Игорь Рябцев");
+        imageButton.setVisibility(View.VISIBLE);
+    }
+
+    public void setVisibilty(View searchView) {
+        searchView.setVisibility(View.INVISIBLE);
+        imageButton.setVisibility(View.INVISIBLE);
     }
 
     /**

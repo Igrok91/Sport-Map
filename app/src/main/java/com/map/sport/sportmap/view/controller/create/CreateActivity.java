@@ -1,6 +1,8 @@
 package com.map.sport.sportmap.view.controller.create;
 
 import android.annotation.SuppressLint;
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
@@ -12,8 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.map.sport.sportmap.R;
+import com.map.sport.sportmap.view.controller.MainActivity;
 import com.map.sport.sportmap.view.controller.action.NewsFragment;
 import com.map.sport.sportmap.view.controller.profile.ProfileFragment;
 import com.map.sport.sportmap.view.controller.search.SearchPlaygroundFragment;
@@ -37,6 +41,8 @@ public class CreateActivity extends AppCompatActivity implements TabLayout.OnTab
     private CreateActivity createActivity;
     private Toolbar toolbar;
     private BottomNavigationView navigation;
+    private ImageButton imageButtonBottom;
+    private ImageButton imageButtonCreate;
 
     private TabLayout tabLayout;
 
@@ -52,6 +58,25 @@ public class CreateActivity extends AppCompatActivity implements TabLayout.OnTab
 
         tabLayout = (TabLayout) findViewById(R.id.CreateTabLayout);
         tabLayout.addOnTabSelectedListener(this);
+        imageButtonBottom = (ImageButton) findViewById(R.id.imageButton6);
+        imageButtonCreate = (ImageButton) findViewById(R.id.imageButton8);
+
+        imageButtonBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreateActivity.this, MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        imageButtonCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreateActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

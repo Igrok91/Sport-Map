@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private ProfileFragment profileFragment;
     private CreateDialogFragment createDialogFragment;
 
+    private TextView titleToollBar;;
     private View searchView;
     private View actionView;
     private View subscribeView;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         subscribeView = (View) findViewById(R.id.subscribe_content);
         profileView = (View) findViewById(R.id.profile_content);
         createView = (View) findViewById(R.id.create_content);
+        titleToollBar = (TextView) findViewById(R.id.TitleToollBar);
 
 
 
@@ -88,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
                         searchPlaygroundFragment.setVisibilty(searchView);
-                        subscribeView.setVisibility(View.INVISIBLE);
-                        profileView.setVisibility(View.INVISIBLE);
+                        playgroundFragment.setVisibilty(subscribeView);
+                        profileFragment.setVisibilty(profileView);
 
                         actionView.setVisibility(View.VISIBLE);
                         newsFragment.setVisibilityToollbar();
@@ -98,18 +100,20 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.navigation_search:
                         searchView.setVisibility(View.VISIBLE);
                         actionView.setVisibility(View.INVISIBLE);
-                        subscribeView.setVisibility(View.INVISIBLE);
-                        profileView.setVisibility(View.INVISIBLE);
+                        playgroundFragment.setVisibilty(subscribeView);
+                        profileFragment.setVisibilty(profileView);
                         searchPlaygroundFragment.setVisibilityToollbar();
                         searchPlaygroundFragment.setClickListener(mainActivity);
                         return true;
                     case R.id.navigation_create:
                       /*  Intent intent = new Intent(MainActivity.this, CreateActivity.class);
                         startActivity(intent);*/
+                        searchPlaygroundFragment.setVisibilty(searchView);
                         searchView.setVisibility(View.INVISIBLE);
                         actionView.setVisibility(View.INVISIBLE);
-                        subscribeView.setVisibility(View.INVISIBLE);
-                        profileView.setVisibility(View.INVISIBLE);
+                        playgroundFragment.setVisibilty(subscribeView);
+                        profileFragment.setVisibilty(profileView);
+                        setVisibilityToollbar();
                         DialogFragment dialogFragment = new CreateDialogFragment();
                         dialogFragment.show(getSupportFragmentManager(), "create");
                         return true;
@@ -117,14 +121,15 @@ public class MainActivity extends AppCompatActivity {
                         searchPlaygroundFragment.setVisibilty(searchView);
                         actionView.setVisibility(View.INVISIBLE);
                         subscribeView.setVisibility(View.VISIBLE);
-                        profileView.setVisibility(View.INVISIBLE);
+                        profileFragment.setVisibilty(profileView);
                         playgroundFragment.setVisibilityToollbar();
                         return true;
                     case R.id.navigation_profile:
                         searchPlaygroundFragment.setVisibilty(searchView);
                         actionView.setVisibility(View.INVISIBLE);
-                        subscribeView.setVisibility(View.INVISIBLE);
+                        playgroundFragment.setVisibilty(subscribeView);
                         profileView.setVisibility(View.VISIBLE);
+                        profileFragment.setVisibilityToollbar();
                         return true;
                 }
                 return false;
@@ -132,7 +137,9 @@ public class MainActivity extends AppCompatActivity {
         });
         disableMenuShiftMode(navigation);
     }
-
+    public void setVisibilityToollbar() {
+        titleToollBar.setText("Создание опроса");
+    }
 
 
     @Override

@@ -42,7 +42,7 @@ public class NewsDummyContent {
     }
 
     private static Event createDummyItem(int position) {
-        return new Event(String.valueOf(position), "Го играть в 7 вечера? ", new Playground("Поле у школы № 29", PlaygroundType.BASKETBALL), R.mipmap.ic_news_foreground);
+        return new Event(String.valueOf(position), "Го в футбол сегодня в 6? ", new Playground("Футбольная площадка у школы № 29", PlaygroundType.BASKETBALL), R.mipmap.ic_football_list_round);
     }
 
     private static String makeDetails(int position) {

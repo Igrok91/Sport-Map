@@ -76,7 +76,7 @@ public class NewsItemRecyclerViewAdapter extends RecyclerView.Adapter<NewsItemRe
             namePlayground = (TextView)itemView.findViewById(R.id.namePlayground);
             namePoll = (TextView)itemView.findViewById(R.id.namePoll);
             date = (TextView)itemView.findViewById(R.id.date);
-            playgroundPhoto = (ImageView)itemView.findViewById(R.id.playgroundPhoto);
+            playgroundPhoto = (ImageView)itemView.findViewById(R.id.imageView2);
         }
 
         @Override

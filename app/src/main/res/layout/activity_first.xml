@@ -47,6 +47,18 @@
                     android:visibility="invisible" />
 
                 <ImageButton
+                    android:id="@+id/imageButton10"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/colorPrimary"
+                    app:srcCompat="@drawable/ic_search2_black_24dp"
+                    android:layout_toRightOf="@+id/switch1"
+                    android:visibility="invisible"/>
+
+                <ImageButton
                     android:id="@+id/imageButton4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -55,7 +67,19 @@
                     android:background="@color/colorPrimary"
                     android:paddingRight="5dp"
                     android:visibility="invisible"
+
                     app:srcCompat="@drawable/ic_add_black_24dp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton11"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/colorPrimary"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/ic_settings_black_24dp" />
 
             </RelativeLayout>
 

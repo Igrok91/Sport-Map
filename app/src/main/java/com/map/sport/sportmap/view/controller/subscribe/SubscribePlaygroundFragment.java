@@ -47,7 +47,7 @@ public class SubscribePlaygroundFragment extends Fragment implements CompoundBut
     private TextView titleToollBar;;
     private Activity activity;
     private TabLayout tabLayout;
-    private ImageButton footbalButton;
+    private ImageButton search;
     private ImageButton voleyballButton;
     private ImageButton basketBallButton;
     private ImageButton allButton;
@@ -95,6 +95,7 @@ public class SubscribePlaygroundFragment extends Fragment implements CompoundBut
         sw = (Switch) activity.findViewById(R.id.switch1);
         titleToollBar = (TextView) activity.findViewById(R.id.TitleToollBar);
         sw.setOnCheckedChangeListener(this);
+        search = (ImageButton) activity.findViewById(R.id.imageButton10);
         return inflater.inflate(R.layout.fragment_subscribe, container, false);
     }
 
@@ -127,7 +128,11 @@ public class SubscribePlaygroundFragment extends Fragment implements CompoundBut
     public void setVisibilityToollbar() {
         sw.setVisibility(View.VISIBLE);
         titleToollBar.setText(R.string.title_subscribe);
+        search.setVisibility(View.VISIBLE);
     }
+
+
+
 
 
     public void setClickListener(MainActivity mainActivity) {
@@ -139,6 +144,7 @@ public class SubscribePlaygroundFragment extends Fragment implements CompoundBut
     public void setVisibilty(View searchView) {
         searchView.setVisibility(View.INVISIBLE);
         sw.setVisibility(View.INVISIBLE);
+        search.setVisibility(View.INVISIBLE);
     }
 
 
